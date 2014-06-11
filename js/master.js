@@ -6,4 +6,4 @@
  * Always create a master directive to hold other directives
  * if you intend to use multiple directives in the same html
  */
-var myAppModule = angular.module("myAppModule", ["app", "counterApp", "personApp","inheritanceModule"]);
+var myAppModule = angular.module("myAppModule", ["app", "counterApp", "personApp","inheritanceModule","parseExpressionModule","interpolationApp"]);
