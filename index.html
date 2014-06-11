@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.js"></script>
+    <script src="js/myapp.js"></script>
+    <script src="js/counterapp.js"></script>
+    <script src="js/person.js"></script>
+    <script src="js/master.js"></script>
+    <script src="js/controllerinheritance.js"></script>
+</head>
+<body ng-app="myAppModule">
+
+
+<div ng-controller="MyController">
+    <h5>Hello {{ clock.today }}!</h5>
+</div>
+
+
+<div ng-controller="CounterController">
+    <h4>The simplest adding machine ever</h4>
+    <button ng-click="add(1)" class="button">Add</button>
+    <a ng-click="subtract(1)" class="button alert">Subtract</a>
+    <h4>Current Count: {{counter}}</h4>
+</div>
+
+
+<div ng-controller="PersonController">
+    <h4>The person object has {{person}}</h4>
+    <h5>The Name of the person is {{person.name}}</h5>
+</div>
+
+<div ng-controller="ParentController">
+    <h4>Controller Inheritance</h4>
+    <div ng-controller="ChildController">
+      <a ng-click="sayHello()">Say Hello</a>
+    </div>
+    {{person}}
+</div>
+
+</body>
+</html>
