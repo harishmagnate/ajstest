@@ -8,10 +8,15 @@ exprModule.controller("ParseExprController",["$scope", "$parse",function($scope,
 
     $scope.$watch("expr",function(newVal, oldVal, scope){
         if(newVal!=oldVal){
+            console.log(scope+'::'+oldVal+'::'+newVal);
             // Let's set up our parseFun with the expression
-           var parseFun=$parse(newVal);
+           var parseFun=$parse(scope);
             // Get the value of the parsed expression
-            $scope.parsedValue=parseFun(scope);
+            $scope.parsedValue=parseFun(newVal);
+            console.log('1'+$parse(scope));
+            console.log('2'+$parse(newVal)(scope));
+            console.log('3'+$scope.parsedValue);
         }
     })
 }]);
+

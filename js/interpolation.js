@@ -1,5 +1,6 @@
 /**
  * Created by hbakthavatchalu on 6/11/2014.
+ * Use $Interpolate to create dynamic templates similar to velocity templates
  */
 
 var app=angular.module("interpolationApp",[]);
