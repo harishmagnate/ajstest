@@ -2,7 +2,7 @@
  * Created by hbakthavatchalu on 6/10/2014.
  */
 
-var app = angular.module("app", []);
+var app = angular.module("myApp", []);
 
 app.controller("MyController", function ($scope) {
     $scope.clock = new Date();

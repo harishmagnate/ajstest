@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="angular_1.2.17.js"></script>
+    <script src="js/master.js"></script>
+    <script src="js/filter.js"></script>
+    <title>Angularjs Tutorial Part 3</title>
+</head>
+<body ng-app="myAppModule3">
+
+<div ng-controller="FilterTestController" >
+    <h4>Filters example using ngb syntax:</h4>
+    <b>Filter for lowercase using $filter service </b> {{name}}<br/>
+    <b>Filter for uppercase in HTML form</b> {{name | uppercase }}
+
+<div id="filterId">
+    <!--Displays 3.14 only for 3.141597...-->
+    <h4>Date Formatting</h4>
+    <b>Filter with multiple arguments. Use colon for every aurgument</b> {{3.141597864521 | number:2 }}<br/>
+    <b>Currency format::</b> {{123| currency}} <br/>
+    <b> Date medium</b> {{ today | date:'medium' }} <br/>
+    <b> Date short</b> {{ today | date:'short' }} <br/>
+    <b> Date fullDate</b> {{ today | date:'fullDate' }}<br/>
+    <b> Date longDate</b> {{ today | date:'longDate' }}<br/>
+    <b> Date mediumDate</b> {{ today | date:'mediumDate' }}<br/>
+    <b> Date shortDate</b> {{ today | date:'shortDate' }}<br/>
+    <b> Date mediumTime</b> {{ today | date:'mediumTime' }}<br/>
+    <b> Date shortTime</b> {{ today | date:'shortTime' }}<br/>
+
+    <h4>Date Formatting</h4>
+    <b> Four-digit year:</b> {{ today | date:'yyyy' }} <br/>
+    <b> 2-digit year:</b> {{ today | date:'yy' }} <br/>
+    <b> Date medium</b> {{ today | date:'y' }} <br/>
+
+    <h4>Month Formatting</h4>
+    <b> Four-digit year:</b> {{ today | date:'MMMM' }} <br/>
+    <b> 3-digit year:</b> {{ today | date:'MMM' }} <br/>
+    <b> 2-digit year padded:</b> {{ today | date:'MM' }} <br/>
+    <b> 1-digit year:</b> {{ today | date:'M' }} <br/>
+
+    <h4>Day Formatting</h4>
+    <b> Padded Day:</b> {{ today | date:'dd' }} <br/>
+    <b> Day:</b> {{ today | date:'d' }} <br/>
+    <b> Day in full:</b> {{ today | date:'EEEE' }} <br/>
+    <b> Short Day:</b> {{ today | date:'EEE' }} <br/>
+
+    <h4>Hour Formatting</h4>
+    <b>Padded hour in day:</b>{{ today | date:'HH' }}<br/>
+    <b>Hour in day:</b>{{ today | date:'H' }}<br/>
+    <b>Padded hour in am/pm:</b>{{ today | date:'hh' }}<br/>
+    <b>Hour in am/pm:</b>{{ today | date:'h' }}<br/>
+
+    <h4>Minutes Formatting</h4>
+    <b>padded minute in day:</b>{{ today | date:'mm' }}<br/>
+    <b>Minute in day:</b>{{ today | date:'m' }}<br/>
+
+    <h4>Seconds Formatting</h4>
+    <b>padded seconds:</b>{{ today | date:'ss'}}<br/>
+    <b>un-padded seconds:</b>{{ today | date:'s'}}<br/>
+    <b>milli seconds:</b>{{ today | date:'sss'}}<br/>
+
+    <h4>String Formatting</h4>
+    <b>am/pm character: </b>{{ today | date:'a' }}<br/>
+    <b>4 - digit time set offset:</b> {{ today | date:'Z' }}<br/>
+
+    <h4>Custom Dates</h4>
+    <b>MMM d, y::</b>{{today | date:'MMM dd, y'}}<br/>
+    <b>MMM d, y::</b>{{today | date:'EEEE, d, y'}}<br/>
+
+    <h4>Filter from object</h4>
+    {{ [{
+    'name': 'Ari',
+    'City': 'San Francisco',
+    'favorite food': 'Pizza'
+    }, {
+    'name': 'Nate',
+    'City': 'San Francisco',
+    'favorite food': 'indian food'
+    }] | filter:{'favorite food': 'Pizza'} }}
+
+    <h4>Filter based on functions: Custom filtering</h4>
+    {{ ['Ari', 'likes', 'to', 'travel'] | filter:isCapitalized }}
+
+</div>
+</div>
+
+</body>
+</html>

@@ -3,9 +3,32 @@
 <head lang="en">
     <meta charset="UTF-8">
     <script src="angular_1.2.17.js"></script>
+    <script src="js/master.js"></script>
+    <script src="js/emailparser.js"></script>
+    <script src="js/filter.js"></script>
     <title>Angularjs Tutorial Part 2</title>
 </head>
-<body ng-app="myAppModule">
+<body ng-app="myAppModule2">
+
+<div ng-controller="EmailParserController" >
+    <h4>Interpolate using factory Example. Use the syntax [to] for template generation</h4>
+<div id="emailEditor">
+<input id="emailId" ng-model="toRecipient" type="email" placeholder="Recipient"/><br/>
+    <textarea ng-model="emailBody2" name="Email text" id="emailTextArea" cols="30" rows="10"></textarea>
+</div>
+<div id="emailPreview" >
+    <pre>[previewText2]</pre>
+</div>
+</div>
+
+
+<div ng-controller="FilterTestController" >
+    <h4>Filters example using the same syntax as the email template:</h4>
+    <b>Filter for lowercase using $filter service </b> [name]<br/>
+    <b>Filter for uppercase in HTML form</b> [name | uppercase ]
+</div>
+
+
 
 </body>
 </html>
