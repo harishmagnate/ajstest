@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Pre-defined directives sample</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+    <script src="predefineddirectives.js"></script>
+</head>
+
+<body ng-app="myApp">
+
+<!--without the ng-app definition the below pre-defined attributes wont wont work-->
+<input type="text" ng-model="someProperty" placeholder="Type to Enable">
+<button ng-model="button" ng-disabled="!someProperty">A Button</button>
+<br/>
+<textarea ng-disabled="isTextAreaDisabled" >Wait for 5 seconds</textarea>
+<br/>
+Type here to make a sibling read-only.
+
+<!--When nothing is typed in the first box second one will be
+enabled but as soon as you type in ng-readonly becomes true and the text field disabled-->
+
+<input type="text" ng-model="someProperty" />
+<input type="text" ng-readonly="someProperty" value="some text here"/>
+<br/>
+<label>someProperty={{someProperty}}</label>
+
+<!--any scope attribute can be used to make checks on a checkbox-->
+
+
+<input type="checkbox" ng-checked="someProperty"
+       ng-init="someProperty=true"
+       ng-model="someProperty"
+        />
+<label>someProperty={{someProperty1}}</label>
+<input type="checkbox" ng-checked="someProperty1"
+       ng-init="someProperty1=false"
+       ng-model="someProperty"
+        />
+<br/>
+
+<!-- ng-selected can be used to pre select options. Here checking and unchecking property is used to manipulate the selected value in the drop down -->
+
+<input type="checkbox" ng-model="twoFish"/>
+<select>
+    <option>no fish</option>
+    <option>One fish</option>
+    <option ng-selected="twoFish">Two fish</option>
+</select>
+
+<!-- ng-href  -->
+
+<br/>
+<a href="{{getUrl}}">Click me</a>
+<br/>
+<a ng-href="{{getUrl}}">You can click me. But wont load until 2 seconds. useful to enable links for a specific business purpose</a>
+<br/>
+<!-- ng-src - Loads the source only on a particular conditions. ng-src & src works the same way in chrome but in firefox we see the difference  -->
+<h6>Wrong way</h6>
+<img src="{{imgSrc}}" />
+
+<h6>Right way</h6>
+<img ng-src="{{imgSrc}}" />
+
+</body>
+</html>

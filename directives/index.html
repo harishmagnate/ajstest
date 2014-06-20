@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Directive Sample</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+    <script src="master.js"></script>
+    <script src="firstdirective.js"></script>
+    <script src="scopes.js"></script>
+</head>
+<body ng-app="appModule">
+
+<my-directive></my-directive>
+<br/>
+<my-directive-replace></my-directive-replace>
+
+<h5 ng-init="greeting = 'Hello World'">
+     The greeting is: {{ greeting }}
+     </h5>
+
+
+
+
+    <p>We can access {{rootProperty}}</p>
+    <div ng-controller="ParenteController">
+        <p>We can access {{parentProperty}} and
+            {{rootProperty}}</p>
+        <div ng-controller="ChileController">
+            <p>We can access {{childProperty}} , {{parentProperty}} and
+                {{rootProperty}}
+            </p>
+            <p>I have complete access to {{childHasFullAccess}}</p>
+        </div>
+    </div>
+
+<!-- Only one directive with the same name is possible in a html document. Defining multiple ones will always fetch only the first definition
+ and hence the definitions are commented below -->
+
+<!-- my-url, my-link-text are isolated scope's attributes defined on the directive -->
+
+<!--<div directive-isolated-scope my-url="http://google.com" my-link-text="Click me to go to Google" />-->
+
+<!--We can have expressions in isolated scope's attribute-->
+
+<!--<div directive-isolated-scope my-url="{{ 'http://'+ 'google.com'}}" my-link-text="Click me"  />-->
+
+<!--directive with attribute from input -->
+<input type="text" name="url" ng-model="myUrl" placeholder="Enter a valid URL" />
+<div directive-isolated-scope my-url="{{myUrl}}" my-link-text="Click me to access the link" />
+
+<!--Two way binding using directives-->
+
+<!--<input type="text" ng-model="theirUrl" />
+<div directive-two-way-bind some-attr="theirUrl" my-link-text="Click me to access the link" />-->
+
+</div>
+
+</body>
+</html>

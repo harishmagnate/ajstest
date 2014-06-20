@@ -92,7 +92,15 @@
             </div>
         </div>
     </div>
-
+    <div class="row">
+        <div class="large-12 columns">
+         <input ng-class="{ error: signup_form.lastname.$dirty && signup_form.lastname.$invalid}" type="text" placeholder="Last Name"
+                name="lastname" ng-model="signup.lastname" ng-minlength=3 ng-maxlength=20 required ng-focus />
+            <div class="error" ng-show="signup_form.lastname.$dirty && signup_form.lastname.$invalid && !signup_form.lastname.$focused">
+                Name is invalid
+             </div>
+    </div>
+    </div>
     <button type="submit" class="button radius">Submit</button>
 </fieldset>
 </form>
