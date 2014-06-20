@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+    <script src="ngincludescript.js"></script>
+    <script src="templateScript.js"></script>
+</head>
+<style>
+
+.even{
+    background-color: blue;
+}
+
+.odd{
+    background-color: red;
+}
+
+</style>
+<body ng-app="predefinedApp">
+<input type="text" ng-model="person.name"/>
+
+<!--ng-switch with on and ng-swich-when are used together.
+The default value set will be replaced when the condition in the ng-switch-when is met.
+Note that the ng-switch-when is used in a header tag.
+So the directives are not restricted to div tag alone-->
+
+<div ng-switch on="person.name">
+<div ng-switch-default>And the winner is:</div>
+<h1 ng-switch-when="Ari">{{person.name}}</h1>
+</div>
+
+<div ng-if="2+2==5">
+    You cant see me even in the source code because the expression fails and the dom is never created.
+</div>
+
+<p ng-if="2+2==4">
+Now you see me.Remember ng-if recreates using the compiled state of the block
+which means the state of the block is in their original state not modified when they appeared previously</p>
+
+<ul ng-controller="PredefinedController">
+    <li ng-repeat="person in people" ng-class="{even: !$even, odd: !$odd}">
+        {{person.name}} lives in {{person.city}}
+    </li>
+</ul>
+
+<!--Use ng-init to set up the state inside the scope of a directive-->
+
+<div ng-init="greeting='Hello'; person='World'">
+     {{greeting}} {{person}} using ng-init predefined directive
+</div>
+
+<div ng-init="greeting='Hello World'">
+    <p ng-bind="greeting"> </p> using ng-bind. Its similar to ngb.
+</div>
+
+<div ng-init="greeting='Hello World'">
+    <p ng-cloak>{{greeting}} using ng-cloak. Cloak loads the data only after resolving the route completely.</p>
+</div>
+
+</body>
+</html>
