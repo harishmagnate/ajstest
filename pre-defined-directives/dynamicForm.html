@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Dynamic Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+    <script src="formmodule.js"></script>
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/foundation/4.3.2/css/foundation.min.css">
+</head>
+<style>
+    .ng-invalid {
+        border: 1px solid red;
+    }
+
+    .ng-valid{
+        border: 1px solid green;
+    }
+
+</style>
+<body ng-app="NgFormApp">
+<form name="signup_form" ng-controller="NgFormController" novalidate ng-submit="submitForm()">
+<div  ng-repeat="field in fields" ng-form="dynamic_form">
+<input type="text" name="dynamic_field" placeholder="{{field.placeholder}}" ng-required="field.isRequired" ng-model="field.name" />
+<div ng-show="dynamic_form.dynamic_field.$dirty && dynamic_form.dynamic_field.$invalid" >
+<span class="error" ng-show="dynamic_form.dynamic_field.$error.required">The field is required</span>
+</div>
+</div>
+    <button type="submit" ng-disabled="signup_form.$invalid" >Submit All</button>
+</form>
+
+<br/><br/>
+
+
+<form name="name_form" ng-controller="NgFormController" ng-submit="submit()">
+Enter a name:&nbsp;<input type="text" ng-model="person.name" name="person.name"/>
+    <input type="submit" name="person.name" value="submit"/>
+    <code>people={{people}}</code>
+    <ul ng-repeat="(index,object) in people">
+        <li>{{object.name}}</li>
+    </ul>
+</form>
+
+</body>
+</html>

@@ -59,5 +59,65 @@ which means the state of the block is in their original state not modified when 
     <p ng-cloak>{{greeting}} using ng-cloak. Cloak loads the data only after resolving the route completely.</p>
 </div>
 
+<div ng-init="name='Harish'; person='World'"/>
+<div ng-bind-template="{{person}} {{name}}"></div>Bind expressions using ng-bind-template directive.<br/><br/>
+
+ng-hide css class is used to hide show the elements. The .ng-hide class is predefined in angular and it sets the display style property to none.<br/>
+
+<div ng-show="{{4 + 4==6}}">
+    Dont show the expression
+</div>
+
+<div ng-show="{{4 + 4==8}}">
+Show the content
+</div>
+
+
+<div ng-hide="{{4 + 4==6}}">
+Don't hide content
+</div>
+
+<div ng-hide="{{4 + 4==8}}">
+    Hide the content
+</div>
+
+<br/><br/>
+ng-change is used in conjunction with ngModel on input fields. Whenever
+input changes use ng-change to call function to perform operations.
+<br/>
+<div ng-controller="PredefinedController">
+    <input ng-model="equation.x" ng-change="changeIt()" type="number"/>
+    {{equation.output}}
+</div>
+<br/>
+ng-click example.
+<div ng-controller="CounterController">
+<button ng-click="count=count+1" ng-init="count=0;">Increment</button>
+count: {{count}}
+    <button ng-click="decrement()" >Decrement</button>
+</div>
+
+<div ng-controller="PredefinedController">
+    <select ng-model="city" ng-options="city.name for city in cities">
+        <option value="">Choose city</option>
+    </select>
+    Best city: {{city.name}}
+</div>
+
+<br/><br/>
+<p>ng-class and ng-click example</p>
+<div ng-controller="PredefinedController">
+<div ng-class="{odd: x >5}" ng-if="x>5">
+    <b>You won!</b>
+</div>
+    <button ng-click="x=generatedNumber()" ng-init="x=0">Draw Number</button>
+    <p> Number is: {{x}}</p>
+</div>
+
+<div ng-init="cx=someExpression"></div>
+<svg>
+     <circle ng-attr-cx="{{cx}}"></circle>
+</svg>
+
 </body>
 </html>

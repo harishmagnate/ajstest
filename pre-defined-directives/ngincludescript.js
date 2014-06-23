@@ -13,4 +13,33 @@ app.controller("PredefinedController",function($scope){
     {name:'Neo', city:'Matrix City'},
     {name:'Trinity', city:'Matrix'}
     ];
+
+    $scope.cities=[
+        {name:'Seattle'},
+        {name:'Chennai'},
+        {name:'Massachusetts'},
+        {name:'Chicago'},
+        {name:'New York'},
+        {name:'Washington D.C'},
+        {name:'Dallas'},
+        {name:'San Francisco'},
+        {name:'San Jose'}
+    ];
+
+    $scope.equation={};
+
+    $scope.changeIt=function(){
+        $scope.equation.output=Number($scope.equation.x)+2;
+    }
+
+    $scope.generatedNumber = function() {
+        return Math.floor((Math.random() * 10) + 1);
+    }
+
+});
+
+app.controller("CounterController",function($scope){
+    $scope.decrement=function(){
+    $scope.count=$scope.count-1;
+    };
 });

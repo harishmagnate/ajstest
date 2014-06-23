@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Understanding Isolate Scope</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.18/angular.js"></script>
+    <script src="isolatescope.js"></script>
+</head>
+<body ng-app="scopeApp1">
+<div ng-controller="MainController" ng-init="myProperty ='MainController Scope'">
+Outside directive {{myProperty}}
+<div my-scope-dir1 >
+    Inside myDirective: {{ myProperty }}
+</div>
+  <div my-scope-dir>
+      Inside myDirective: {{ myProperty }}
+  </div>
+
+</div>
+
+
+</body>
+</html>
